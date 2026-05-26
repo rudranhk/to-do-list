@@ -1,0 +1,20 @@
+<h1>My To‑Do List</h1>
+
+<form action="/tasks/add" method="POST">
+  <input type="text" name="title" placeholder="Enter a task" required>
+  <button type="submit">Add Task</button>
+</form>
+
+<ul>
+  {{#each tasks}}
+    <li>
+      {{#if completed}}
+        <s>{{title}}</s>
+      {{else}}
+        {{title}}
+      {{/if}}
+      <a href="/tasks/toggle/{{_id}}">Toggle</a>
+      <a href="/tasks/delete/{{_id}}">Delete</a>
+    </li>
+  {{/each}}
+</ul>
